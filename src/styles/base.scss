@@ -1,0 +1,33 @@
+body {
+  @apply bg-black text-blue-50;
+
+  &,
+  & * {
+    @apply transition-all duration-150;
+  }
+}
+
+.app {
+  @apply min-h-screen;
+}
+
+.home {
+  @apply grid content-center justify-center;
+}
+
+a.link1 {
+  @apply border-b-2 
+  border-dark;
+  &:hover {
+    @apply border-light;
+  }
+  &:active {
+    @apply border-white;
+  }
+}
+
+/*
+*
+*
+*
+*/

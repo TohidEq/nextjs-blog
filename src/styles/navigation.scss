@@ -1,0 +1,115 @@
+// vars and keyframes
+$delay: 0.5s;
+$menu-items: 3;
+
+@keyframes drop {
+  from {
+    top: -150px;
+    opacity: 0;
+  }
+  70% {
+    top: 50px;
+
+    opacity: 0.5;
+    animation-timing-function: ease-in;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+}
+
+nav.navigation {
+  .container {
+    @apply mx-auto relative
+    py-4
+    flex
+    justify-between;
+
+    .title {
+      @apply font-bold
+      text-center pl-4
+      w-fit 
+      text-white no-underline;
+
+      span {
+        @apply underline underline-offset-2;
+      }
+    }
+
+    .links-desktop {
+      @apply hidden sm:block
+      flex;
+      a {
+        @apply mx-4 px-1;
+      }
+    }
+    .links-mobile {
+      @apply block sm:hidden;
+      * {
+        @apply text-white;
+      }
+
+      .btn {
+        @apply relative pr-4 z-50 h-full transition-all duration-500;
+
+        &.menu-open {
+          -webkit-transform: rotateX(180deg);
+          -moz-transform: rotateX(180deg);
+        }
+        svg {
+          @apply h-full;
+        }
+      }
+
+      .wrapper {
+        @apply absolute w-fit h-auto right-0 top-full;
+        /* width: 150px*/
+
+        .menu {
+          @apply hidden w-fit
+          opacity-0
+          transition-all
+          duration-150;
+
+          .menu__list {
+            @apply text-right px-4 bg-black opacity-0 
+            duration-150;
+
+            .menu__list__item {
+              @apply relative list-none py-2
+              top-0;
+
+              a {
+                @apply no-underline
+                text-white
+                text-right;
+              }
+            }
+          }
+
+          &.menu__list--animate {
+            @apply block opacity-100;
+
+            .menu__list {
+              @apply opacity-100;
+            }
+
+            .menu__list__item {
+              top: -100vh;
+              animation: drop 0.9s;
+              animation-fill-mode: forwards;
+
+              @for $i from 2 through $menu-items {
+                &:nth-child(#{$i}) {
+                  animation-delay: $delay * ($i - 1);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
