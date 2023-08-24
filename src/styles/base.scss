@@ -10,6 +10,9 @@ body {
 .app {
   @apply min-h-screen;
 }
+.page {
+  @apply min-h-screen;
+}
 
 .home {
   @apply grid content-center justify-center;

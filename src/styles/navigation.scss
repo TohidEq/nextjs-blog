@@ -21,8 +21,9 @@ $menu-items: 3;
 }
 
 nav.navigation {
+  @apply fixed z-40 bg-black w-full;
   .container {
-    @apply mx-auto relative
+    @apply mx-auto 
     py-4
     flex
     justify-between;
