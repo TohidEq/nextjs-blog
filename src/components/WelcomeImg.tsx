@@ -2,13 +2,16 @@ import Image from "next/image";
 
 function WelcomeImg() {
   return (
-    <Image
-      src={"/images/wlcm.jpg"}
-      alt="Welcome!"
-      width={"1920"}
-      height={"1080"}
-      priority={true}
-    />
+    <div className="img">
+      <Image
+        src={"/images/wlcm.jpg"}
+        alt="Welcome!"
+        width={"1920"}
+        height={"1080"}
+        priority={false}
+      />
+      <span className="img-grad"></span>
+    </div>
   );
 }
 

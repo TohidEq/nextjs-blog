@@ -85,7 +85,7 @@ nav.navigation {
           duration-150;
 
           .menu__list {
-            @apply text-right px-4 bg-black opacity-0 
+            @apply text-right px-4 bg-black/30 backdrop-blur-xl opacity-0 
             duration-150;
 
             .menu__list__item {
