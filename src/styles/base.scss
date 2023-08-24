@@ -19,6 +19,16 @@ body {
 }
 
 a.link1 {
+  @apply drop-shadow-glow-link-1;
+  &:hover {
+    @apply drop-shadow-glow-link-2;
+  }
+  &:active {
+    @apply drop-shadow-glow-link-3;
+  }
+}
+
+a.prevlink1 {
   @apply border-b-2 
   border-dark;
   &:hover {

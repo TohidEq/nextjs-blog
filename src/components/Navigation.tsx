@@ -13,7 +13,7 @@ function Navigation() {
   return (
     <nav className={"navigation"}>
       <div className={"container"}>
-        <Link href={"/"} className="title">
+        <Link href={"/"} className="title ">
           <span>N</span>ext <span>B</span>log
         </Link>
 

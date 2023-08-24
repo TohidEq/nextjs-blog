@@ -35,7 +35,12 @@ nav.navigation {
       text-white no-underline;
 
       span {
-        @apply underline underline-offset-2;
+        @apply drop-shadow-glow;
+      }
+      &:hover {
+        span {
+          @apply drop-shadow-glow2;
+        }
       }
     }
 
@@ -53,9 +58,14 @@ nav.navigation {
       }
 
       .btn {
-        @apply relative pr-4 z-50 h-full transition-all duration-500;
+        @apply relative pr-4 z-50 h-full transition-all duration-500
+        drop-shadow-glow-link-1;
+        &:hover {
+          @apply drop-shadow-glow-link-2;
+        }
 
         &.menu-open {
+          @apply drop-shadow-glow-link-3;
           -webkit-transform: rotateX(180deg);
           -moz-transform: rotateX(180deg);
         }
