@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const postsDirectory = path.join(process.cwd(), "src/blogposts");
+const postsDirectory = path.join(process.cwd(), "blogposts");
 
 export function getSortedPostData() {
   // get files name under /blogposts

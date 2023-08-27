@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Posts from "./Posts";
 
 function WelcomeImg() {
   return (
@@ -11,6 +12,7 @@ function WelcomeImg() {
         priority={false}
       />
       <span className="img-grad"></span>
+      <Posts />
     </div>
   );
 }
