@@ -9,6 +9,11 @@ type Props = {
   params: { postId: string };
 };
 
+export function generateStaticParams() {
+  const posts = getSortedPostData();
+  return posts.map((post) => ({ postId: post.id }));
+}
+
 export function generateMetadata({ params }: Props) {
   const posts = getSortedPostData();
 
