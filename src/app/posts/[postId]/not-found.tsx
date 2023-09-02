@@ -2,6 +2,11 @@ import Link from "next/link";
 import React from "react";
 import { AiOutlineLink } from "react-icons/ai";
 
+export function generateMetadata() {
+  return {
+    title: "Not Found",
+  };
+}
 export default function NotFound() {
   return (
     <div className="page not-found prose grid content-center mx-auto">
