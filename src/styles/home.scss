@@ -20,4 +20,12 @@
       -moz-box-shadow: 0px 0px 20px 15px rgba(11, 11, 13, 1) inset;
     }
   }
+
+  .links {
+    @apply flex justify-center;
+    a {
+      @extend .link1;
+      @apply no-underline py-6 text-center prose-2xl text-white flex flex-nowrap;
+    }
+  }
 }

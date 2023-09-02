@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import getFormattedDate from "@/lib/getFormattedDate";
 import Link from "next/link";
 
+import { AiOutlineLink } from "react-icons/ai";
+
 type Props = {
   params: { postId: string };
 };
@@ -43,13 +45,29 @@ export default async function page({ params }: Props) {
   const pubDate = getFormattedDate(date);
 
   return (
-    <div className="prose">
-      <h1>{title}</h1>
-      <span>{pubDate}</span>
-      <article>
-        <section dangerouslySetInnerHTML={{ __html: contentHtml }} />
-        <Link href={"/"}>Back to Home</Link>
+    <div className="blog page">
+      <article className="blog-post">
+        <div className="post-title">
+          <h1>{title}</h1>
+          <span>{pubDate}</span>
+        </div>
+        <section
+          className="post-section"
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
+        />
+        {/* 
+        
+        
+        */}
       </article>
+      <div className="other-links">
+        <Link href={"/"}>
+          Back to Home <AiOutlineLink className={"h-full ml-1"} />
+        </Link>
+        <Link href={"/posts"}>
+          Back to Posts <AiOutlineLink className={"h-full ml-1"} />
+        </Link>
+      </div>
     </div>
   );
 }

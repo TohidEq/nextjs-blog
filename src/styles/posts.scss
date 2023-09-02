@@ -1,0 +1,15 @@
+.posts {
+  @apply max-w-[70ch] mx-auto;
+  .post-cards {
+    .post-card {
+      @apply flex flex-wrap;
+      a {
+        @extend .link1;
+        @apply w-full no-underline pt-6 text-center prose-2xl text-white flex flex-nowrap;
+      }
+      span {
+        @apply pt-1 pb-5 text-light;
+      }
+    }
+  }
+}

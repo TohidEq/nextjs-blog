@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Posts from "./Posts";
+import Link from "next/link";
+import { AiOutlineLink } from "react-icons/ai";
 
 function WelcomeImg() {
   return (
@@ -12,7 +13,11 @@ function WelcomeImg() {
         priority={false}
       />
       <span className="img-grad"></span>
-      <Posts />
+      <div className="links">
+        <Link href={"/posts"}>
+          All Posts <AiOutlineLink className={"h-full ml-1"} />
+        </Link>
+      </div>
     </div>
   );
 }

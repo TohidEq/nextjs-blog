@@ -1,0 +1,70 @@
+.blog {
+  .blog-post {
+    .post-title {
+      @apply py-10;
+      h1 {
+        @apply my-0 text-white;
+      }
+      span {
+        @apply border-b-2 text-light pl-0.5
+        border-light w-full block;
+      }
+    }
+
+    .post-section {
+      *,
+      * * {
+        @apply text-white/70;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      a,
+      strong {
+        @apply text-white;
+      }
+
+      h1,
+      h2 {
+        @apply border-b-2 border-dark pb-2;
+      }
+
+      a {
+        @extend .link1;
+        @apply no-underline;
+      }
+
+      li::marker {
+        @apply text-white;
+      }
+
+      code {
+        font-family: "Roboto Mono", monospace;
+
+        @apply px-1 bg-white/90 rounded py-0.5 text-black;
+      }
+
+      pre {
+        font-family: "Roboto Mono", monospace;
+        @apply bg-white/90;
+        code {
+          font-family: "Roboto Mono", monospace;
+
+          @apply px-1 bg-transparent rounded py-0.5 text-black;
+        }
+      }
+    }
+  }
+
+  .other-links {
+    @apply flex justify-center flex-wrap py-6;
+    a {
+      @extend .link1;
+      @apply w-full no-underline py-2 text-center flex justify-center prose-2xl text-white flex flex-nowrap;
+    }
+  }
+}

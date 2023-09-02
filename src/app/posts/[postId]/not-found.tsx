@@ -4,7 +4,7 @@ import { AiOutlineLink } from "react-icons/ai";
 
 export default function NotFound() {
   return (
-    <div className="not-found min-h-[90vh] prose grid content-center mx-auto">
+    <div className="page not-found prose grid content-center mx-auto">
       <h1 className="text-white text-center m-0">Not Found!</h1>
       <Link
         href={"/"}

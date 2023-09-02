@@ -21,6 +21,9 @@ $menu-items: 3;
 }
 
 nav.navigation {
+  .nav-controller {
+    @apply max-w-[70ch];
+  }
   @apply fixed z-40 bg-black w-full;
   .container {
     @apply mx-auto 
@@ -45,8 +48,8 @@ nav.navigation {
     }
 
     .links-desktop {
-      @apply hidden sm:block
-      flex;
+      @apply hidden 
+      sm:flex;
       a {
         @apply mx-4 px-1;
       }
