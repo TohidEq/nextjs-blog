@@ -1,5 +1,10 @@
 import WelcomeImg from "@/components/WelcomeImg";
-import Image from "next/image";
+
+export function generateMetadata() {
+  return {
+    title: "NextBlog",
+  };
+}
 
 export default function Home() {
   return (
