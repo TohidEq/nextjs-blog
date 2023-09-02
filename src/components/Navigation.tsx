@@ -22,7 +22,7 @@ function Navigation() {
             <Link href={"/"} className="link1">
               Home
             </Link>
-            <Link href={"/"} className="link1">
+            <Link href={"/posts"} className="link1">
               Posts
             </Link>
             <Link href={"/"} className="link1">

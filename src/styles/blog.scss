@@ -57,6 +57,9 @@
           @apply px-1 bg-transparent rounded py-0.5 text-black;
         }
       }
+      img {
+        @apply rounded;
+      }
     }
   }
 
