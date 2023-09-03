@@ -26,10 +26,13 @@ export function generateMetadata({ params }: Props) {
   if (!post)
     return {
       title: "Post Not Found",
+      description: "This Post Not Found.",
     };
 
   return {
     title: post.title,
+
+    description: `This is the page of ${post.title}`,
   };
 }
 export default async function page({ params }: Props) {

@@ -5,6 +5,7 @@ import { AiOutlineLink } from "react-icons/ai";
 export function generateMetadata() {
   return {
     title: "Not Found",
+    description: "Page Not Found",
   };
 }
 export default function NotFound() {
