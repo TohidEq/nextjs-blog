@@ -1,60 +1,53 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
+export async function getPostsByName(
+  fileName: string
+): Promise<BlogPost | undefined> {
+  //
+  const res = await fetch(
+    `https://raw.githubusercontent.com/TohidEq/test-mdx-posts/master/${fileName}`,
+    {
+      headers: {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    }
+  );
 
-const postsDirectory = path.join(process.cwd(), "blogposts");
+  if (!res.ok) return undefined;
 
-export function getSortedPostData() {
-  // get files name under /blogposts
-  const fileNames = fs.readdirSync(postsDirectory);
+  const rawMDX = await res.text();
 
-  const allPostData = fileNames.map((fileName) => {
-    //remove .md from file name
-    const id = fileName.replace(/\.md$/, "");
+  if (rawMDX === "404: Not Found") return undefined;
 
-    //read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf-8");
+  const id = fileName.replace(/\.mdx$/, "");
 
-    //use gray-matter
-    const matterResult = matter(fileContents);
-
-    const blogPost: BlogPost = {
-      id,
-      title: matterResult.data.title,
-      date: matterResult.data.date,
-    };
-
-    //combine the data with the id
-    return blogPost;
-  });
-
-  //sort posts by date
-  return allPostData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  //
+  return undefined;
+  //
 }
 
-export async function getPostData(id: string) {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf-8");
+export async function getPostsMeta(): Promise<Meta[] | undefined> {
+  const res = await fetch(
+    "https://api.github.com/repos/TohidEq/test-mdx-posts/git/trees/master?recursive=1",
+    {
+      headers: {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    }
+  );
 
-  //use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents);
+  if (!res.ok) return undefined;
+  //
 
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
+  const repoFileTree: FileTree = await res.json();
 
-  const contentHtml = processedContent.toString();
+  const filesArray = repoFileTree.tree
+    .map((item) => item.path)
+    .filter((path) => path.endsWith(".mdx"));
 
-  const blogPostWithHTML: BlogPost & { contentHtml: string } = {
-    id,
-    title: matterResult.data.title,
-    date: matterResult.data.date,
-    contentHtml,
-  };
-
-  //combine the data with the id
-  return blogPostWithHTML;
+  //
+  return undefined;
+  //
 }

@@ -1,5 +1,4 @@
 import { getPostData, getSortedPostData } from "@/lib/posts";
-import { cache } from "react";
 
 import { notFound } from "next/navigation";
 import getFormattedDate from "@/lib/getFormattedDate";
