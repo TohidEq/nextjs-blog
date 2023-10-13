@@ -1039,6 +1039,18 @@ video {
   margin-left: 0.25rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.ml-0 {
+  margin-left: 0px;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .flex {
   display: flex;
 }
@@ -1051,16 +1063,20 @@ video {
   height: 100%;
 }
 
-.max-w-\[70ch\] {
-  max-width: 70ch;
-}
-
 .flex-nowrap {
   flex-wrap: nowrap;
 }
 
 .content-center {
   align-content: center;
+}
+
+.p-0 {
+  padding: 0px;
+}
+
+.p-0\.5 {
+  padding: 0.125rem;
 }
 
 .py-2 {

@@ -62,12 +62,32 @@
       }
     }
   }
+  .other-section {
+    .other-links {
+      @apply justify-center py-3;
+      a {
+        @extend .link1;
+        @apply w-full no-underline py-2 prose-2xl text-white flex-nowrap;
+      }
+    }
 
-  .other-links {
-    @apply flex justify-center flex-wrap py-6;
-    a {
-      @extend .link1;
-      @apply w-full no-underline py-2 text-center flex justify-center prose-2xl text-white flex flex-nowrap;
+    .o-tags-s {
+      @apply text-left prose-2xl text-white;
+      .o-tags {
+        @apply flex flex-wrap;
+        h3 {
+          color: rgb(211 213 253 / var(--tw-text-opacity)) !important;
+        }
+        a {
+          @apply px-1 py-0.5 flex justify-center  flex-nowrap w-fit;
+        }
+      }
+    }
+
+    .o-nav {
+      a {
+        @apply text-center flex justify-center  flex-nowrap;
+      }
     }
   }
 }

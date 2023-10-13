@@ -1,4 +1,7 @@
-export async function getPostsByName(
+import { compileMDX } from "next-mdx-remote/rsc";
+import { JSXElementConstructor, ReactElement } from "react";
+
+export async function getPostByName(
   fileName: string
 ): Promise<BlogPost | undefined> {
   //
@@ -18,11 +21,33 @@ export async function getPostsByName(
   const rawMDX = await res.text();
 
   if (rawMDX === "404: Not Found") return undefined;
+  //{content:ReactElement<any, string | JSXElementConstructor<any>>}
+  const { frontmatter, content } = await compileMDX<{
+    title: string;
+    date: string;
+    tags: string[];
+  }>({
+    source: rawMDX,
+
+    options: {
+      parseFrontmatter: true,
+    },
+  });
 
   const id = fileName.replace(/\.mdx$/, "");
 
-  //
-  return undefined;
+  const blogPostObj: BlogPost = {
+    meta: {
+      id,
+      title: frontmatter.title,
+      date: frontmatter.date,
+      tags: frontmatter.tags,
+    },
+    content,
+  };
+  console.log(1234213, rawMDX);
+
+  return blogPostObj;
   //
 }
 
@@ -47,7 +72,17 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
     .map((item) => item.path)
     .filter((path) => path.endsWith(".mdx"));
 
+  const posts: Meta[] = [];
+
+  for (const file of filesArray) {
+    const post = await getPostByName(file);
+    if (post) {
+      const { meta } = post;
+      posts.push(meta);
+    }
+  }
+
   //
-  return undefined;
+  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
   //
 }

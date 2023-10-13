@@ -4,7 +4,7 @@ import Link from "next/link";
 import { AiOutlineLink } from "react-icons/ai";
 
 type Props = {
-  post: BlogPost;
+  post: Meta;
 };
 
 export default function ListItem({ post }: Props) {

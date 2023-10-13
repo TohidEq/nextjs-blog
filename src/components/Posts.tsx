@@ -1,8 +1,13 @@
-import { getSortedPostData } from "@/lib/posts";
+import { getPostsMeta } from "@/lib/posts";
 import ListItem from "./ListItem";
 
-export default function Posts() {
-  const posts = getSortedPostData();
+export default async function Posts() {
+  const posts = await getPostsMeta();
+
+  if (!posts) {
+    return <p className="mt-10 text-center">Sorry, no posts available.</p>;
+  }
+
   return (
     <div className="post-cards">
       {posts.map((post) => {
