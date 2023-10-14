@@ -1,5 +1,4 @@
 import { compileMDX } from "next-mdx-remote/rsc";
-import { JSXElementConstructor, ReactElement } from "react";
 
 export async function getPostByName(
   fileName: string
@@ -22,6 +21,8 @@ export async function getPostByName(
 
   if (rawMDX === "404: Not Found") return undefined;
   //{content:ReactElement<any, string | JSXElementConstructor<any>>}
+
+  // ////////
   const { frontmatter, content } = await compileMDX<{
     title: string;
     date: string;
@@ -33,7 +34,7 @@ export async function getPostByName(
       parseFrontmatter: true,
     },
   });
-
+  ////////
   const id = fileName.replace(/\.mdx$/, "");
 
   const blogPostObj: BlogPost = {

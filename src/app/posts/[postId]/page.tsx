@@ -62,14 +62,7 @@ export default async function Post({ params: { postId } }: Props) {
           <h1>{meta.title}</h1>
           <span>{pubDate}</span>
         </div>
-        <section
-          className="post-section"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-        {/* 
-        
-        
-        */}
+        <section className="post-section">{content}</section>
       </article>
       <div className="other-section">
         <div className="other-links o-tags-s">
