@@ -1,5 +1,9 @@
 import { compileMDX } from "next-mdx-remote/rsc";
 
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeHighlight from "rehype-highlight";
+import rehypeSlug from "rehype-slug";
+
 export async function getPostByName(
   fileName: string
 ): Promise<BlogPost | undefined> {
@@ -32,6 +36,18 @@ export async function getPostByName(
 
     options: {
       parseFrontmatter: true,
+      mdxOptions: {
+        rehypePlugins: [
+          rehypeHighlight as any,
+          rehypeSlug,
+          [
+            rehypeAutolinkHeadings,
+            {
+              behavior: "wrap",
+            },
+          ],
+        ],
+      },
     },
   });
   ////////

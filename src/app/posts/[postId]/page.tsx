@@ -7,6 +7,8 @@ import Link from "next/link";
 import { AiOutlineLink } from "react-icons/ai";
 // import { revalidate } from "@/app/page";
 
+import "highlight.js/styles/github-dark.css";
+
 export const revalidate = 0;
 
 type Props = {

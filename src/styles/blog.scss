@@ -12,12 +12,9 @@
     }
 
     .post-section {
-      &,
-      *,
-      * * {
-        @apply text-white/70;
+      & {
+        @apply text-white/90;
       }
-
       h1,
       h2,
       h3,
@@ -43,19 +40,21 @@
         @apply text-white;
       }
 
-      code {
+      :not(pre) > code {
         font-family: "Roboto Mono", monospace;
 
-        @apply px-1 bg-white/90 rounded py-0.5 text-black;
+        @apply px-1 rounded py-0.5 text-black bg-white/90;
       }
 
       pre {
-        font-family: "Roboto Mono", monospace;
-        @apply bg-white/90;
+        @apply bg-white shadow-white drop-shadow-glow-link-1 p-0.5;
+        font-family: "Roboto Mono", monospace !important;
+        /* @apply bg-white/90; */
         code {
-          font-family: "Roboto Mono", monospace;
+          font-family: "Roboto Mono", monospace !important;
 
-          @apply px-1 bg-transparent rounded py-0.5 text-black;
+          @apply px-1.5 rounded py-1 bg-black;
+          /* text-black bg-transparent ; */
         }
       }
       img {
