@@ -1,4 +1,7 @@
 .posts {
+  h2 {
+    @apply text-white;
+  }
   @apply max-w-[70ch] mx-auto;
   .post-cards {
     .post-card {
