@@ -70,7 +70,6 @@ export async function getPostByName(
     },
     content,
   };
-  console.log(1234213, rawMDX);
 
   return blogPostObj;
   //
