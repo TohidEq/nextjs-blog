@@ -9,7 +9,7 @@ import { AiOutlineLink } from "react-icons/ai";
 
 import "highlight.js/styles/github-dark.css";
 
-export const revalidate = 86400;
+export const revalidate = 10;
 
 type Props = {
   params: { postId: string };

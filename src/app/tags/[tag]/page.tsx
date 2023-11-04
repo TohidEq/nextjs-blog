@@ -2,7 +2,7 @@ import ListItem from "@/components/ListItem";
 import { getPostsMeta } from "@/lib/posts";
 import Link from "next/link";
 
-export const revalidate = 86400; //86400;
+export const revalidate = 10; //86400;
 
 import React from "react";
 
