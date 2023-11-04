@@ -9,19 +9,19 @@ import { AiOutlineLink } from "react-icons/ai";
 
 import "highlight.js/styles/github-dark.css";
 
-export const revalidate = 0;
+export const revalidate = 10;
 
 type Props = {
   params: { postId: string };
 };
 
-// export async function generateStaticParams() {
-//   const posts = await getPostsMeta(); //deduped!
+export async function generateStaticParams() {
+  const posts = await getPostsMeta(); //deduped!
 
-//   if (!posts) return [];
+  if (!posts) return [];
 
-//   return posts.map((post) => ({ postId: post.id }));
-// }
+  return posts.map((post) => ({ postId: post.id }));
+}
 
 export async function generateMetadata({ params: { postId } }: Props) {
   const post = await getPostByName(`${postId}.mdx`); //deduped!

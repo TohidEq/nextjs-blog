@@ -1,4 +1,5 @@
 import Posts from "@/components/Posts";
+import { getPostByName, getPostsMeta } from "@/lib/posts";
 import React from "react";
 
 export default function AllPosts() {
