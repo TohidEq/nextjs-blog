@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build-post": "next-sitemap",
+    "postbuild": "next-sitemap",
     "build-css": "tailwindcss --postcss -i ./src/styles/tailwind.scss -o ./src/styles/index.scss --watch"
   },
   "dependencies": {
