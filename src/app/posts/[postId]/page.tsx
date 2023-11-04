@@ -53,9 +53,6 @@ export default async function Post({ params: { postId } }: Props) {
       {tag} <AiOutlineLink className={"h-full ml-1 p-0.5"} />
     </Link>
   ));
-  console.log(1111, post);
-  console.log(22222, content);
-  console.log(333333, meta);
 
   return (
     <div className="blog page">

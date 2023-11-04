@@ -4,6 +4,9 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 
+import Video from "@/components/Video";
+import CustomImage from "@/components/CustomImage";
+
 export async function getPostByName(
   fileName: string
 ): Promise<BlogPost | undefined> {
@@ -33,6 +36,11 @@ export async function getPostByName(
     tags: string[];
   }>({
     source: rawMDX,
+
+    components: {
+      Video,
+      CustomImage,
+    },
 
     options: {
       parseFrontmatter: true,
